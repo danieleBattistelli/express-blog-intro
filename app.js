@@ -3,6 +3,8 @@ const app = express();
 const posts = require('./data')
 const port = 3000;
 
+app.use('/static', express.static('public'));
+
 //Rotta che ritorna un testo semplice
 app.get('/', (raq,res) =>{
     res.send('Server del mio blog');
@@ -12,7 +14,7 @@ app.get('/', (raq,res) =>{
 app.get('/bacheca', (req,res) =>{
     res.json({
         posts:posts,
-        count:postMessage.length
+        count:posts.length
     });
 });
 
